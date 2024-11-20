@@ -35,13 +35,11 @@ setSending(true);
 
         const data = await res.json();
 
-       if(data.success){
-        console.log("Message sent successfully")
-       }
+       
        setEmailSubmitted(true)
 
     } catch (error) {
-        console.log(error)
+        console.log(error.message)
     }finally{
         setSending(false);
     }
