@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import GithubIcon from "../../public/images/github-icon.svg";
-import LinkedinIcon from "../../public/images/linkedin-icon.svg";
+import GithubIcon from "../public/images/github-icon.svg";
+import LinkedinIcon from "../public/images/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -41,7 +41,7 @@ setSending(true);
        setEmailSubmitted(true)
 
     } catch (error) {
-        console.log(error.message)
+        console.log(error)
     }finally{
         setSending(false);
     }
@@ -64,10 +64,10 @@ setSending(true);
           try my best to get back to you!
         </p>
         <div className="socials flex flex-row gap-2">
-          <Link href="github.com">
+          <Link href="https://www.github.com/anasgee">
             <Image src={GithubIcon} alt="Github Icon" />
           </Link>
-          <Link href="linkedin.com">
+          <Link href="https://www.linkedin.com/in/muhammadanasraza">
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
         </div>

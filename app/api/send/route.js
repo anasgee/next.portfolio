@@ -1,15 +1,19 @@
 import nodemailer from "nodemailer";
 
 export const POST = async (req, res) => {
+
+  console.log("This is method",req.method); // method
   const body = await req.json()
   const { email, subject, message } = body;
 
+  console.log("This is message in email",email,subject,message); //console
 
   try {
     const transporter = nodemailer.createTransport({
-      host: process.env.HOST,
-      port: parseInt(process.env.PORT), // Ensure PORT is correctly parsed as an integer
-      secure: process.env.PORT === "465", // Use secure connection only for port 465
+      host: "smtp.gmail.com",
+      service:"gmail",
+      // port: parseInt(process.env.PORT), // Ensure PORT is correctly parsed as an integer
+      // secure: process.env.PORT === "465", // Use secure connection only for port 465
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASSWORD,
@@ -22,6 +26,8 @@ export const POST = async (req, res) => {
       subject: subject,
       text: `From: ${email}\n\n${message}`, // Include sender's email in the message body
     };
+
+    console.log(mailOptions); // kam kr rha hai
 
     await transporter.sendMail(mailOptions);
 
